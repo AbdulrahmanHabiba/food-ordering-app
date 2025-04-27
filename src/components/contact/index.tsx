@@ -1,7 +1,7 @@
 import React from 'react';
 import MainHeading from "@/components/main-heading";
 import { Routes } from "@/constants/enums";
-import { Mail, Phone, Linkedin, Github, Facebook, MessageCircleMore } from 'lucide-react';
+import { Mail, Linkedin, Github, Facebook, MessageCircleMore } from 'lucide-react';
 
 const Contact = () => {
     return (
@@ -15,8 +15,7 @@ const Contact = () => {
                 </div>
                 <div className="mt-10 flex justify-center items-center gap-6 flex-wrap">
 
-                    {/* WhatsApp */}
-                    <a
+                     <a
                         href="https://wa.me/201113951795"
                         target="_blank"
                         className="w-14 h-14 flex items-center justify-center rounded-full bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground transition"
@@ -24,8 +23,7 @@ const Contact = () => {
                         <MessageCircleMore className="w-6 h-6"/>
                     </a>
 
-                    {/* LinkedIn */}
-                    <a
+                     <a
                         href="https://www.linkedin.com/in/abdulrahman-habiba-b6a34921a"
                         target="_blank"
                         className="w-14 h-14 flex items-center justify-center rounded-full bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground transition"
@@ -33,8 +31,7 @@ const Contact = () => {
                         <Linkedin className="w-6 h-6"/>
                     </a>
 
-                    {/* GitHub */}
-                    <a
+                     <a
                         href="https://github.com/AbdulrahmanHabiba"
                         target="_blank"
                         className="w-14 h-14 flex items-center justify-center rounded-full bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground transition"
@@ -42,8 +39,7 @@ const Contact = () => {
                         <Github className="w-6 h-6"/>
                     </a>
 
-                    {/* Facebook */}
-                    <a
+                     <a
                         href="https://www.facebook.com/abdulrahmanhsan.habiba.3/"
                         target="_blank"
                         className="w-14 h-14 flex items-center justify-center rounded-full bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground transition"

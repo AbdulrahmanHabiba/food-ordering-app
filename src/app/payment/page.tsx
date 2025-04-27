@@ -1,22 +1,29 @@
 "use client";
 
-import React from "react";
-import { useSearchParams } from "next/navigation";
+import React, {Suspense, useEffect, useState} from "react";
+import {useSearchParams} from "next/navigation";
 import StripeWrapper from "@/app/payment/StripeWrapper";
 import PaymentForm from "./_components/PaymentForm";
 import {useAppDispatch} from "@/redux/hooks";
 import {removeAllItemsFromCart} from "@/redux/features/cart/cartSlice";
 import AnimatedComponent from "@/app/_components/AnimatedComponent";
 
-const PaymentPage = () => {
+const PaymentPageContent = () => {
+    const [clientSecret, setClientSecret] = useState("");
+    const [username, setUsername] = useState("");
+    const [phone, setPhone] = useState("");
+    const [address, setAddress] = useState("");
     const searchParams = useSearchParams();
 
-    const clientSecret = searchParams.get("clientSecret");
-    const username = searchParams.get("username") || "";
-    const phone = searchParams.get("phone") || "";
-    const address = searchParams.get("address") || "";
+    useEffect(() => {
+        setClientSecret(searchParams.get("clientSecret") || "");
+        setUsername(searchParams.get("username") || "");
+        setPhone(searchParams.get("phone") || "");
+        setAddress(searchParams.get("address") || "");
+    }, [searchParams]);
 
-    const userDetails = { username, phone, address };
+
+    const userDetails = {username, phone, address};
     const dispatch = useAppDispatch();
 
     const handleSuccess = () => {
@@ -34,11 +41,19 @@ const PaymentPage = () => {
     }
 
     return (
-        <StripeWrapper clientSecret={clientSecret}>
-            <AnimatedComponent>
-            <PaymentForm userDetails={userDetails} onSuccess={handleSuccess} />
-            </AnimatedComponent>
-        </StripeWrapper>
+            <StripeWrapper clientSecret={clientSecret}>
+                <AnimatedComponent>
+                    <PaymentForm userDetails={userDetails} onSuccess={handleSuccess}/>
+                </AnimatedComponent>
+            </StripeWrapper>
+    );
+};
+
+const PaymentPage = () => {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <PaymentPageContent/>
+        </Suspense>
     );
 };
 

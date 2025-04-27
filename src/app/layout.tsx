@@ -1,5 +1,5 @@
 import type {Metadata} from "next";
-import {Roboto} from "next/font/google";
+// import {Roboto} from "next/font/google";
 import "./globals.css";
 import React from "react";
 import Header from "@/components/header";
@@ -7,11 +7,11 @@ import Footer from "@/components/footer";
 import ReduxProvider from "@/providers/ReduxProvider";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const roboto = Roboto({
-    subsets: ["latin"],
-    weight: ["400", "500", "700"],
-    preload: true,
-});
+// const roboto = Roboto({
+//     subsets: ["latin"],
+//     weight: ["400", "500", "700"],
+//     preload: true,
+// });
 
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export default async function RootLayout({children,}: Readonly<{
     return (
         <html lang="en">
         <body
-            className={`${roboto.className} min-h-screen flex flex-col justify-between`}
+            className={`min-h-screen flex flex-col justify-between`}
         >
         <ReduxProvider>
             <Header/>

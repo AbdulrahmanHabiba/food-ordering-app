@@ -13,9 +13,9 @@ const Hero = () => {
                 <AnimatedComponent>
                 <div className="flex flex-col gap-4 md:py-12">
                     <h1 className="text-4xl font-semibold ">Slice into Happiness </h1>
-                    <p className="text-accent">Craving pizza? We've got you covered with fresh ingredients, endless
+                    <p className="text-accent">Craving pizza? We&#39;ve got you covered with fresh ingredients, endless
                         flavors, and the fastest
-                        delivery. Your pqerfect slice is just a tap away</p>
+                        delivery. Your perfect slice is just a tap away</p>
                     <div className='flex items-center gap-4'>
                         <Link
                             href={`/${Routes.MENU}`}

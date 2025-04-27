@@ -1,5 +1,4 @@
 import React from 'react';
-import BestSellers from "@/app/_components/BestSellers";
 import {getProductsByCategory} from "@/server/db/product";
 import Menu from "@/components/menu";
 
