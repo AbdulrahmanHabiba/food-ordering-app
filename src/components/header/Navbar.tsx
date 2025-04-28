@@ -52,7 +52,7 @@ const Navbar = () => {
                             href={link.href}>{link.title}</Link>
                     </li>
                 ))}
-                <span className="lg:block hidden">
+                <span className="lg:block hidden ">
                     <CartButton/>
                 </span>
             </ul>
