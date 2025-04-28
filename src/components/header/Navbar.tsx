@@ -3,8 +3,9 @@ import React, {useState} from 'react';
 import {Routes} from "@/constants/enums";
 import Link from "@/components/link";
 import {Button, buttonVariants} from "@/components/ui/button";
-import { Menu, XIcon } from "lucide-react";
+import {Menu, XIcon} from "lucide-react";
 import CartButton from "@/components/header/cart-button";
+
 const Navbar = () => {
     const links = [
         {id: crypto.randomUUID(), title: "Menu", href: Routes.MENU},
@@ -15,15 +16,19 @@ const Navbar = () => {
     const [openMenu, setOpenMenu] = useState(false);
 
     return (
-        <nav className="flex-1 flex justify-end">
+        <nav className="flex-1 flex gap-5 justify-end">
+                <span className="block lg:hidden mt-1">
+                    <CartButton/>
+                </span>
             <Button
                 variant="secondary"
                 size="sm"
                 className="lg:hidden"
                 onClick={() => setOpenMenu(true)}
             >
-                <Menu className="!w-6 !h-6" />
+                <Menu className="!w-6 !h-6"/>
             </Button>
+
             <ul
                 className={`fixed lg:static ${
                     openMenu ? " left-0 z-50" : "-left-full"
@@ -47,8 +52,11 @@ const Navbar = () => {
                             href={link.href}>{link.title}</Link>
                     </li>
                 ))}
-                <CartButton />
+                <span className="lg:block hidden">
+                    <CartButton/>
+                </span>
             </ul>
+
         </nav>
     );
 };
